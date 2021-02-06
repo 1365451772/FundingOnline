@@ -1,7 +1,8 @@
 package com.peng.crowd.mapper;
 
-import com.atguigu.crowd.entity.po.ProjectPO;
-import com.atguigu.crowd.entity.po.ProjectPOExample;
+
+import com.peng.crowd.entity.po.ProjectPO;
+import com.peng.crowd.entity.po.ProjectPOExample;
 import java.util.List;
 import org.apache.ibatis.annotations.Param;
 

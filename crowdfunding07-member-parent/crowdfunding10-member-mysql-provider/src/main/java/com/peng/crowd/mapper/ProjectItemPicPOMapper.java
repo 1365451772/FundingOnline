@@ -1,7 +1,7 @@
 package com.peng.crowd.mapper;
 
-import com.atguigu.crowd.entity.po.ProjectItemPicPO;
-import com.atguigu.crowd.entity.po.ProjectItemPicPOExample;
+import com.peng.crowd.entity.po.ProjectItemPicPO;
+import com.peng.crowd.entity.po.ProjectItemPicPOExample;
 import java.util.List;
 import org.apache.ibatis.annotations.Param;
 

@@ -1,7 +1,7 @@
 package com.peng.crowd.mapper;
 
-import com.atguigu.crowd.entity.po.TypePO;
-import com.atguigu.crowd.entity.po.TypePOExample;
+import com.peng.crowd.entity.po.TypePO;
+import com.peng.crowd.entity.po.TypePOExample;
 import java.util.List;
 import org.apache.ibatis.annotations.Param;
 

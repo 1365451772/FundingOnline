@@ -9,14 +9,13 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class MemberLoginVO implements Serializable {
+public class MemberConfirmInfoVO implements Serializable {
 	
 	private static final long serialVersionUID = 1L;
+	
+	// 易付宝账号
+	private String paynum;
 
-	private Integer id;
-	
-    private String username;
-	
-	private String email;
-	
+	// 法人身份证号
+	private String cardnum;
 }

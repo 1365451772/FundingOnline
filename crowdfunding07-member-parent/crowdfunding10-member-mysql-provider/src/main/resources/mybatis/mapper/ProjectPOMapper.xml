@@ -109,6 +109,16 @@
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
+  <insert id="insertTypeRelationship">
+    insert into t_project_type(`projectid`,`typeid`) values
+    <foreach collection="typeIdList" item="typeId" separator=",">(#{projectId},#{typeId})</foreach>
+  </insert>
+
+  <insert id="insertTagRelationship">
+    insert into `t_project_tag`(`projectid`,`tagid`) values
+    <foreach collection="tagIdList" item="tagId" separator=",">(#{projectId},#{tagId})</foreach>
+  </insert>
+
   <insert id="insert" parameterType="com.peng.crowd.entity.po.ProjectPO" >
     insert into t_project (id, project_name, project_description, 
       money, day, status, 

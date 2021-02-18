@@ -38,4 +38,8 @@ public interface ProjectPOMapper {
     void insertTagRelationship(
         @Param("tagIdList") List<Integer> tagIdList,
         @Param("projectId") Integer projectId);
+
+    List<PortalTypeVO> selectPortalTypeVOList();
+
+    DetailProjectVO selectDetailProjectVO(Integer projectId);
 }

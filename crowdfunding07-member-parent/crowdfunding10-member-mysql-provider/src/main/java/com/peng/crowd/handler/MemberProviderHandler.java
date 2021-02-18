@@ -1,5 +1,9 @@
 package com.atguigu.crowd.handler;
 
+import com.atguigu.crowd.constant.CrowdConstant;
+import com.atguigu.crowd.entity.po.MemberPO;
+import com.atguigu.crowd.service.api.MemberService;
+import com.atguigu.crowd.util.ResultEntity;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,11 +12,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
-
-import com.atguigu.crowd.constant.CrowdConstant;
-import com.atguigu.crowd.entity.po.MemberPO;
-import com.atguigu.crowd.service.api.MemberService;
-import com.atguigu.crowd.util.ResultEntity;
 
 @RestController
 public class MemberProviderHandler {

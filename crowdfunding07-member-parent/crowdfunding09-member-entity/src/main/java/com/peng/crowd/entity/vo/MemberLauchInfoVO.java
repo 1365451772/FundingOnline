@@ -1,4 +1,4 @@
-package com.peng.crowd.entity.vo;
+package com.atguigu.crowd.entity.vo;
 
 import java.io.Serializable;
 

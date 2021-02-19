@@ -25,6 +25,21 @@ public class ProjectConsumerHandler {
 	@Autowired
 	private MySQLRemoteService mySQLRemoteService;
 
+
+	@RequestMapping("/get/project/detail/{projectId}")
+	public String getProjectDetail(@PathVariable("projectId") Integer projectId, Model model) {
+
+		ResultEntity<DetailProjectVO> resultEntity = mySQLRemoteService.getDetailProjectVORemote(projectId);
+
+		if(ResultEntity.SUCCESS.equals(resultEntity.getResult())) {
+			DetailProjectVO detailProjectVO = resultEntity.getData();
+
+			model.addAttribute("detailProjectVO", detailProjectVO);
+		}
+
+		return "project-show-detail";
+	}
+
 	@RequestMapping("/create/confirm")
 	public String saveConfirm(ModelMap modelMap, HttpSession session, MemberConfirmInfoVO memberConfirmInfoVO) {
 

@@ -11,9 +11,7 @@ import com.peng.crowd.util.CrowdUtil;
 import com.peng.crowd.util.ResultEntity;
 import java.util.Objects;
 import java.util.concurrent.TimeUnit;
-
 import javax.servlet.http.HttpSession;
-
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;

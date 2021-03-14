@@ -1,7 +1,6 @@
-package com.peng.crowd.entity.vo;
+package com.atguigu.crowd.entity.vo;
 
 import java.io.Serializable;
-
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -9,7 +8,7 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class ReturnVO  implements Serializable {
+public class ReturnVO implements Serializable {
 	
 	private static final long serialVersionUID = 1L;
 	

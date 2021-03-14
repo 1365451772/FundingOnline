@@ -15,4 +15,14 @@ public interface MySQLRemoteService {
 
 	@RequestMapping("/save/member/remote")
 	ResultEntity<String> saveMember(@RequestBody MemberPO memberPO);
+
+	@RequestMapping("/save/project/vo/remote")
+	ResultEntity<String> saveProjectVORemote(@RequestBody ProjectVO projectVO, @RequestParam("memberId") Integer memberId);
+
+
+	@RequestMapping("/get/portal/type/project/data/remote")
+  ResultEntity<List<PortalTypeVO>> getPortalTypeProjectDataRemote();
+
+	@RequestMapping("/get/project/detail/remote/{projectId}")
+	ResultEntity<DetailProjectVO> getDetailProjectVORemote(@PathVariable("projectId") Integer projectId);
 }

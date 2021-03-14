@@ -1,6 +1,6 @@
 package com.atguigu.crowd.entity.vo;
 
-import java.io.Serializable;
+import java.util.List;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -8,14 +8,12 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class MemberLoginVO implements Serializable {
+public class PortalTypeVO {
 	
-	private static final long serialVersionUID = 1L;
-
 	private Integer id;
+	private String name;
+	private String remark;
 	
-    private String username;
-	
-	private String email;
-	
+	private List<PortalProjectVO> portalProjectVOList;
+
 }

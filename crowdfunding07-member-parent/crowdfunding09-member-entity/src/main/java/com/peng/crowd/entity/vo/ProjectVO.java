@@ -1,8 +1,7 @@
-package com.peng.crowd.entity.vo;
+package com.atguigu.crowd.entity.vo;
 
 import java.io.Serializable;
 import java.util.List;
-
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -26,7 +25,7 @@ public class ProjectVO implements Serializable {
 	private String projectDescription;
 	
 	// 计划筹集的金额
-	private Integer money;
+	private Long money;
 	
 	// 筹集资金的天数
 	private Integer day;

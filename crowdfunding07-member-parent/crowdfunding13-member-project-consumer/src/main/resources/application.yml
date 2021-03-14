@@ -20,6 +20,6 @@ aliyun:
   oss:
     access-key-id: LTAI4FtyK7WcqxaiE9ttukNi
     access-key-secret: 43OFOgMghjsitNsNlTGqcpPGgyzqgU
-    bucket-domain: http://atguigu190830.oss-cn-shenzhen.aliyuncs.com
-    bucket-name: atguigu190830
+    bucket-domain: http://peng190830.oss-cn-shenzhen.aliyuncs.com
+    bucket-name: peng190830
     end-point: http://oss-cn-shenzhen.aliyuncs.com

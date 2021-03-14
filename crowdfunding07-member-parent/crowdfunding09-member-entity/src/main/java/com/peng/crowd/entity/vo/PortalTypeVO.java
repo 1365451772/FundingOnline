@@ -1,4 +1,4 @@
-package com.atguigu.crowd.entity.vo;
+package com.peng.crowd.entity.vo;
 
 import java.util.List;
 import lombok.AllArgsConstructor;

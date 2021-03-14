@@ -1,4 +1,4 @@
-package com.atguigu.crowd.entity.vo;
+package com.peng.crowd.entity.vo;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

@@ -25,6 +25,9 @@ zuul:
     crowd-order:
       service-id: peng-crowd-order
       path: /order/**
+    crowd-pay:
+      service-id: peng-crowd-pay
+      path: /pay/**
 ribbon:
   ReadTimeout: 10000
   ConnectTimeout: 10000

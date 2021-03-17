@@ -1,22 +1,41 @@
 package com.peng.crowd.handler;
 
-
 import com.peng.crowd.entity.vo.AddressVO;
 import com.peng.crowd.entity.vo.OrderProjectVO;
+import com.peng.crowd.entity.vo.OrderVO;
 import com.peng.crowd.service.api.OrderService;
 import com.peng.crowd.util.ResultEntity;
 import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+
+
 @RestController
 public class OrderProviderHandler {
 	
 	@Autowired
 	private OrderService orderService;
+	
+	@RequestMapping("/save/order/remote")
+	ResultEntity<String> saveOrderRemote(@RequestBody OrderVO orderVO) {
+		
+		try {
+			orderService.saveOrder(orderVO);
+			
+			return ResultEntity.successWithoutData();
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+			
+			return ResultEntity.failed(e.getMessage());
+		}
+		
+	}
 	
 	@RequestMapping("/save/address/remote")
 	public ResultEntity<String> saveAddressRemote(@RequestBody AddressVO addressVO) {

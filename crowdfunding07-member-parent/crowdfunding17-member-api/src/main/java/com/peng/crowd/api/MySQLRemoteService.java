@@ -4,10 +4,12 @@ import com.peng.crowd.entity.po.MemberPO;
 import com.peng.crowd.entity.vo.AddressVO;
 import com.peng.crowd.entity.vo.DetailProjectVO;
 import com.peng.crowd.entity.vo.OrderProjectVO;
+import com.peng.crowd.entity.vo.OrderVO;
 import com.peng.crowd.entity.vo.PortalTypeVO;
 import com.peng.crowd.entity.vo.ProjectVO;
 import com.peng.crowd.util.ResultEntity;
 import java.util.List;
+
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -15,7 +17,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 
-@FeignClient("peng-crowd-mysql")
+@FeignClient("atguigu-crowd-mysql")
 public interface MySQLRemoteService {
 	
 	@RequestMapping("/get/memberpo/by/login/acct/remote")
@@ -46,4 +48,7 @@ public interface MySQLRemoteService {
 
 	@RequestMapping("/save/address/remote")
 	ResultEntity<String> saveAddressRemote(@RequestBody AddressVO addressVO);
+
+	@RequestMapping("/save/order/remote")
+	ResultEntity<String> saveOrderRemote(@RequestBody OrderVO orderVO);
 }

@@ -1,0 +1,12 @@
+INSERT INTO `inner_role_auth`(`id`, `role_id`, `auth_id`) VALUES (1, 11, 1);
+INSERT INTO `inner_role_auth`(`id`, `role_id`, `auth_id`) VALUES (2, 11, 2);
+INSERT INTO `inner_role_auth`(`id`, `role_id`, `auth_id`) VALUES (3, 11, 3);
+INSERT INTO `inner_role_auth`(`id`, `role_id`, `auth_id`) VALUES (4, 11, 4);
+INSERT INTO `inner_role_auth`(`id`, `role_id`, `auth_id`) VALUES (5, 11, 5);
+INSERT INTO `inner_role_auth`(`id`, `role_id`, `auth_id`) VALUES (6, 11, 6);
+INSERT INTO `inner_role_auth`(`id`, `role_id`, `auth_id`) VALUES (7, 11, 7);
+INSERT INTO `inner_role_auth`(`id`, `role_id`, `auth_id`) VALUES (8, 11, 8);
+INSERT INTO `inner_role_auth`(`id`, `role_id`, `auth_id`) VALUES (9, 11, 9);
+INSERT INTO `inner_role_auth`(`id`, `role_id`, `auth_id`) VALUES (10, 11, 10);
+INSERT INTO `inner_role_auth`(`id`, `role_id`, `auth_id`) VALUES (11, 11, 11);
+INSERT INTO `inner_role_auth`(`id`, `role_id`, `auth_id`) VALUES (12, 11, 12);

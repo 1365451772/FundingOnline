@@ -1,0 +1,1 @@
+INSERT INTO `t_admin`(`id`, `login_acct`, `user_pswd`, `user_name`, `email`, `create_time`) VALUES (1, 'sunpeng', '$2a$10$kpGqUaCvRGA5rE0.GNyvGugHBPZPM8bKQ96KJl9vxyx/N3bif72OS', '孙鹏', 'admin@qq.com', '2020-12-22 20:15:57');

@@ -4,6 +4,9 @@ package com.peng.crowd.mapper;
 import com.peng.crowd.entity.po.ProjectPO;
 import com.peng.crowd.entity.po.ProjectPOExample;
 import java.util.List;
+
+import com.peng.crowd.entity.vo.DetailProjectVO;
+import com.peng.crowd.entity.vo.PortalTypeVO;
 import org.apache.ibatis.annotations.Param;
 
 public interface ProjectPOMapper {

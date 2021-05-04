@@ -17,7 +17,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 
-@FeignClient("atguigu-crowd-mysql")
+@FeignClient("peng-crowd-mysql")
 public interface MySQLRemoteService {
 	
 	@RequestMapping("/get/memberpo/by/login/acct/remote")

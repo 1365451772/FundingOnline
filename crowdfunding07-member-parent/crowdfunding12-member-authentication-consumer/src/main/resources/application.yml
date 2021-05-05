@@ -7,8 +7,7 @@ spring:
     prefix: classpath:/templates/
     suffix: .html
   redis:
-    host: localhost
-    password: 123456
+    host: 192.168.161.3
   session:
     store-type: redis
 eureka:
@@ -24,6 +23,17 @@ short:
     path: /codeNotice
     sign: 151003
     skin: 84683
+
+
+message:
+  from: peng1365451772@163.com
+  password: IIFFZOYQMYTKAUEL
+  host: smtp.163.com
+  title: verificationCode
+  skin: [crowdfuning]
+
+
+
 ribbon:
   ReadTimeout: 10000
   ConnectTimeout: 10000

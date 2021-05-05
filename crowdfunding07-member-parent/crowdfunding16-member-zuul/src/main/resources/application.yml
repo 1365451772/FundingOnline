@@ -4,8 +4,7 @@ spring:
   application:
     name: peng-crowd-zuul
   redis:
-    host: localhost
-    password: 123456
+    host: 192.168.161.3
   session:
     store-type: redis
 eureka:

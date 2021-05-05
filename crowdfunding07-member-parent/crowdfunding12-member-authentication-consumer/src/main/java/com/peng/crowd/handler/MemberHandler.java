@@ -96,8 +96,8 @@ public class MemberHandler {
 	@RequestMapping("/auth/do/member/register")
 	public String register(MemberVO memberVO, ModelMap modelMap) {
 		
-		// 1.获取用户输入的手机号
-		String phoneNum = memberVO.getPhoneNum();
+		// 1.获取用户输入的邮箱
+		String phoneNum = memberVO.getEmail();
 		
 		// 2.拼Redis中存储验证码的Key
 		String key = CrowdConstant.REDIS_CODE_PREFIX + phoneNum;
@@ -221,7 +221,7 @@ public class MemberHandler {
 			String key = CrowdConstant.REDIS_CODE_PREFIX + phoneNum;
 
 			// ③调用远程接口存入Redis
-			ResultEntity<String> saveCodeResultEntity = redisRemoteService.setRedisKeyValueRemoteWithTimeout(key, code, 15, TimeUnit.MINUTES);
+			ResultEntity<String> saveCodeResultEntity = redisRemoteService.setRedisKeyValueRemoteWithTimeout(key, code, 120, TimeUnit.MINUTES);
 
 			// ④判断结果
 			if(ResultEntity.SUCCESS.equals(saveCodeResultEntity.getResult())) {

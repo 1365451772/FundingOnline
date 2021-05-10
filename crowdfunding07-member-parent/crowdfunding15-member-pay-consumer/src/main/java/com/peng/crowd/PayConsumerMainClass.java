@@ -9,10 +9,10 @@ import org.springframework.cloud.openfeign.EnableFeignClients;
 @EnableFeignClients
 @EnableDiscoveryClient
 @SpringBootApplication
-public class CrowdMainClass {
+public class PayConsumerMainClass {
 	
 	public static void main(String[] args) {
-		SpringApplication.run(CrowdMainClass.class, args);
+		SpringApplication.run(PayConsumerMainClass.class, args);
 	}
 
 }

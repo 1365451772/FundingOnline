@@ -2,14 +2,14 @@ package com.peng.crowd;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.cloud.netflix.eureka.server.EnableEurekaServer;
+import org.springframework.cloud.netflix.zuul.EnableZuulProxy;
 
-@EnableEurekaServer
+@EnableZuulProxy
 @SpringBootApplication
-public class CrowdMainClass {
+public class ZuulMainClass {
 	
 	public static void main(String[] args) {
-		SpringApplication.run(CrowdMainClass.class, args);
+		SpringApplication.run(ZuulMainClass.class, args);
 	}
 
 }

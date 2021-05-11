@@ -50,7 +50,7 @@ public class AdminHandler {
 		return "admin-edit";
 	}
 	
-	@PreAuthorize("hasAuthority('user:save')")
+	@PreAuthorize("hasAuthority('user:add')")
 	@RequestMapping("/admin/save.html")
 	public String save(Admin admin) {
 		

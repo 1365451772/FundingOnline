@@ -267,8 +267,11 @@ public class ProjectConsumerHandler {
 		// 1.将ProjectVO对象存入Session域
 		session.setAttribute(CrowdConstant.ATTR_NAME_TEMPLE_PROJECT, projectVO);
 
+
 		// 2.以完整的访问路径前往下一个收集回报信息的页面
-		return "redirect:http://www.crowd.com/project/return/info/page";
+//		return "redirect:http://www.crowd.com/project/return/info/page";
+
+		return "project-return";
 	}
 
 

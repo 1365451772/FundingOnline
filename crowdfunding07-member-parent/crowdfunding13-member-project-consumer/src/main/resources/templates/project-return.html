@@ -342,7 +342,7 @@
 															<label for="inputEmail3" class="col-sm-2 control-label"></label>
 															<div class="col-sm-10">
 																<button type="button" class="btn btn-primary" id="okBtn">确定</button>
-																<button type="button" class="btn btn-default">取消</button>
+																<button type="button" class="btn btn-default" id="nokBtn">取消</button>
 															</div>
 														</div>
 
@@ -374,12 +374,9 @@
 							</div>
 						</div>
 						<div class="panel-footer" style="text-align: center;">
-							<button type="button" class="btn  btn-default btn-lg"
-								onclick="window.location.href='start-step-1.html'">上一步</button>
 							<!-- <button type="button" class="btn  btn-warning btn-lg"
 								onclick="window.location.href='start-step-3.html'">下一步</button> -->
 							<a th:href="@{/project/create/confirm/page}" class="btn btn-warning btn-lg">下一步</a>
-							<a class="btn"> 预览 </a>
 						</div>
 					</div>
 				</div>
@@ -493,6 +490,11 @@
 		
 		// 声明序号保存表格中数据的序号
 		var order = 0;
+
+
+		$("#nokBtn").click(function () {
+			$(".returnFormDiv").hide();
+		})
 
 		// 点击确定按钮，绑定单击响应函数
 		$("#okBtn").click(function(){

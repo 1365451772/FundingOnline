@@ -107,17 +107,8 @@
                     <nav class="navbar navbar-default" role="navigation">
                         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                             <ul class="nav navbar-nav">
-                                <li>
-                                    <a rel="nofollow" href="index.html"><i class="glyphicon glyphicon-home"></i> 众筹首页</a>
-                                </li>
-                                <li >
-                                    <a rel="nofollow" href="projects.html"><i class="glyphicon glyphicon-th-large"></i> 项目总览</a>
-                                </li>
                                 <li class="active">
                                     <a rel="nofollow" href="javascript:;"><i class="glyphicon glyphicon-edit"></i> 发起项目</a>
-                                </li>
-                                <li>
-                                    <a rel="nofollow" href="minecrowdfunding.html"><i class="glyphicon glyphicon-user"></i> 我的众筹</a>
                                 </li>
                             </ul>
                         </div>
@@ -204,8 +195,7 @@
                                         <div class="col-md-12 column">
                                             <div class="panel panel-default">
                                                 <div class="panel-body" style="padding:60px;">
-                                                    <i class="glyphicon glyphicon-ok" style="color:green;font-size:40px;"></i> <span style="margin-left:20px;">你发起的众筹项目信息已经提交完毕，我们会在5~7个工作日内对项目进行审核，请耐心等候</span>
-                                                    <p style="margin-left:60px;">你能在会员中心-我的众筹- 发起的项目中查看</p>
+                                                    <i class="glyphicon glyphicon-ok" style="color:green;font-size:40px;"></i> <span style="margin-left:20px;">你发起的众筹项目信息已经提交完毕</span>
                                                 </div>
                                             </div>
                                         </div>
@@ -215,7 +205,8 @@
                         </div>
                         </div>
                         <div class="panel-footer" style="text-align:center;">
-                            <button type="button" class="btn  btn-warning btn-lg" onclick="window.location.href='minecrowdfunding.html'">我的众筹</button>
+
+                            <a  class="btn  btn-warning btn-lg" th:href="@{/auth/member/to/center/page}">返回个人界面</a>
                         </div>
                     </div>
                 </div>

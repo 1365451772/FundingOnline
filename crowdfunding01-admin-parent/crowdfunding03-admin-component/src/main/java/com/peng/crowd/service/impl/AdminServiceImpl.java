@@ -25,6 +25,8 @@ import com.peng.crowd.util.CrowdUtil;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 
+import javax.servlet.http.HttpSession;
+
 @Service
 public class AdminServiceImpl implements AdminService {
 	
@@ -37,7 +39,7 @@ public class AdminServiceImpl implements AdminService {
 	private BCryptPasswordEncoder passwordEncoder;
 
 	@Override
-	public void saveAdmin(Admin admin) {
+	public void saveAdmin(Admin admin, HttpSession session) {
 		
 		// 1.密码加密
 		String userPswd = admin.getUserPswd();
@@ -53,7 +55,7 @@ public class AdminServiceImpl implements AdminService {
 		
 		// 3.执行保存
 		try {
-			adminMapper.insert(admin);
+			int id = adminMapper.insert(admin);
 		} catch (Exception e) {
 			e.printStackTrace();
 			

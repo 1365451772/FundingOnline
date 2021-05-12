@@ -5,9 +5,11 @@ import java.util.List;
 import com.peng.crowd.entity.Admin;
 import com.github.pagehelper.PageInfo;
 
+import javax.servlet.http.HttpSession;
+
 public interface AdminService {
 	
-	void saveAdmin(Admin admin);
+	void saveAdmin(Admin admin, HttpSession session);
 
 	List<Admin> getAll();
 

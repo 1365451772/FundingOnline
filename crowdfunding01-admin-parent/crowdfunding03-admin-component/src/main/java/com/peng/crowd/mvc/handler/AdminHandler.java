@@ -52,9 +52,10 @@ public class AdminHandler {
 	
 	@PreAuthorize("hasAuthority('user:add')")
 	@RequestMapping("/admin/save.html")
-	public String save(Admin admin) {
+	public String save(Admin admin,HttpSession session) {
 		
-		adminService.saveAdmin(admin);
+		adminService.saveAdmin(admin,session);
+
 		
 		return "redirect:/admin/get/page.html?pageNum="+Integer.MAX_VALUE;
 	}

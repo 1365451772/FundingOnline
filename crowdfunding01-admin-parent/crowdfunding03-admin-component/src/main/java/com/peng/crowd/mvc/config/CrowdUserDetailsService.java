@@ -16,6 +16,11 @@ import org.springframework.stereotype.Component;
 
 import com.peng.crowd.entity.Admin;
 import com.peng.crowd.entity.Role;
+import org.springframework.web.context.request.RequestContextHolder;
+import org.springframework.web.context.request.ServletRequestAttributes;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 @Component
 public class CrowdUserDetailsService implements UserDetailsService {
@@ -31,12 +36,16 @@ public class CrowdUserDetailsService implements UserDetailsService {
 
 	@Override
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+
+
+
 		
 		// 1.根据账号名称查询Admin对象
 		Admin admin = adminService.getAdminByLoginAcct(username);
 		
 		// 2.获取adminId
 		Integer adminId = admin.getId();
+
 		
 		// 3.根据adminId查询角色信息
 		List<Role> assignedRoleList = roleService.getAssignedRole(adminId);

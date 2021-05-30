@@ -223,9 +223,9 @@
                     <p th:if="${return.freight>0}">配送费用：[[${return.freight}]]</p>
                     <p>预计发放时间：项目筹款成功后的[[${return.returnDate}]]天内</p>
 
-                    <a th:disabled="" th:if="${detailProjectVO.lastDay > 0}" th:href="'http://www.crowd.com/order/confirm/return/info/'+${detailProjectVO.projectId}+'/'+${return.returnId}"
+                    <a th:disabled="" th:if="${detailProjectVO.lastDay > 0 and detailProjectVO.statusText=='众筹中'}" th:href="'http://www.crowd.com/order/confirm/return/info/'+${detailProjectVO.projectId}+'/'+${return.returnId}"
                        class="btn btn-warning btn-lg">支持</a>
-                    <a th:disabled="disabled" th:if="${detailProjectVO.lastDay <= 0}" th:href="'http://www.crowd.com/order/confirm/return/info/'+${detailProjectVO.projectId}+'/'+${return.returnId}"
+                    <a th:disabled="disabled" th:if="${detailProjectVO.lastDay <= 0 or detailProjectVO.statusText!='众筹中'}" th:href="'http://www.crowd.com/order/confirm/return/info/'+${detailProjectVO.projectId}+'/'+${return.returnId}"
                        class="btn btn-warning btn-lg">支持</a>
                     <br>
                     <br>

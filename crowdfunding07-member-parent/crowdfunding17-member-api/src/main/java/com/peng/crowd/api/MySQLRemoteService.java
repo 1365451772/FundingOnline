@@ -50,5 +50,5 @@ public interface MySQLRemoteService {
 	ResultEntity<String> saveAddressRemote(@RequestBody AddressVO addressVO);
 
 	@RequestMapping("/save/order/remote")
-	ResultEntity<String> saveOrderRemote(@RequestBody OrderVO orderVO);
+	ResultEntity<String> saveOrderRemote(@RequestBody OrderVO orderVO,@RequestParam("projectId") Integer projectId,@RequestParam("supportmoney") Long supportMoney);
 }

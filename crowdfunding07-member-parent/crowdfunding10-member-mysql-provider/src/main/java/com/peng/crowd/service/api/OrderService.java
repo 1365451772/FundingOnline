@@ -15,4 +15,5 @@ public interface OrderService {
 
 	void saveOrder(OrderVO orderVO);
 
+    void updateProject(Integer projectId, Long supportMoney);
 }

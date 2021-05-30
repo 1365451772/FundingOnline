@@ -80,7 +80,12 @@ public class OrderHandler {
 		
 		ResultEntity<OrderProjectVO> resultEntity = 
 				mySQLRemoteService.getOrderProjectVORemote(projectId, returnId);
-		
+
+		//将支持的项目id存到session域，支持操作完成后项目某些信息要发生变化
+		MemberLoginVO memberLoginVO = (MemberLoginVO) session.getAttribute(CrowdConstant.ATTR_NAME_LOGIN_MEMBER);
+		Integer memberId = memberLoginVO.getId();
+		session.setAttribute(String.valueOf(memberId),projectId);
+
 		if(ResultEntity.SUCCESS.equals(resultEntity.getResult())) {
 			OrderProjectVO orderProjectVO = resultEntity.getData();
 			

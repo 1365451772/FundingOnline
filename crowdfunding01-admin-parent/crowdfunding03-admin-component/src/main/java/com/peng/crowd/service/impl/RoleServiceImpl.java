@@ -53,6 +53,7 @@ public class RoleServiceImpl implements RoleService {
 		criteria.andIdIn(roleIdList);
 		
 		roleMapper.deleteByExample(example);
+
 	}
 
 	@Override

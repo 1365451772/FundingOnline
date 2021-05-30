@@ -24,7 +24,7 @@
 							class="glyphicon glyphicon-check"></i> 实名认证审核</a></li>
 					<li style="height: 30px;"><a href="auth_adv.html"><i
 							class="glyphicon glyphicon-check"></i> 广告审核</a></li>
-					<li style="height: 30px;"><a href="auth_project.html"><i
+					<li style="height: 30px;"><a href="project/to/page.html"><i
 							class="glyphicon glyphicon-check"></i> 项目审核</a></li>
 				</ul></li>
 			<li class="list-group-item tree-closed"><span><i

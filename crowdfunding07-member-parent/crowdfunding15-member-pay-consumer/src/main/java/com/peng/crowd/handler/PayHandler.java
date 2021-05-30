@@ -2,6 +2,8 @@ package com.peng.crowd.handler;
 
 import com.peng.crowd.api.MySQLRemoteService;
 import com.peng.crowd.config.PayProperties;
+import com.peng.crowd.constant.CrowdConstant;
+import com.peng.crowd.entity.vo.MemberLoginVO;
 import com.peng.crowd.entity.vo.OrderProjectVO;
 import com.peng.crowd.entity.vo.OrderVO;
 import com.peng.crowd.util.ResultEntity;
@@ -140,9 +142,16 @@ public class PayHandler {
 			
 			// 2.将支付宝交易号设置到OrderVO对象中
 			orderVO.setPayOrderNum(payOrderNum);
-			
+
+
+			Long supportMoney = (Long) session.getAttribute("supportmoney");
+
+			MemberLoginVO memberLoginVO = (MemberLoginVO) session.getAttribute(CrowdConstant.ATTR_NAME_LOGIN_MEMBER);
+			Integer memberId = memberLoginVO.getId();
+			Integer projectId = (Integer) session.getAttribute(String.valueOf(memberId));
+
 			// 3.发送给MySQL的远程接口
-			ResultEntity<String> resultEntity = mySQLRemoteService.saveOrderRemote(orderVO);
+			ResultEntity<String> resultEntity = mySQLRemoteService.saveOrderRemote(orderVO,projectId,supportMoney);
 			logger.info("Order save result="+resultEntity.getResult());
 			
 			return "trade_no:"+payOrderNum+"<br/>out_trade_no:"+orderNum+"<br/>total_amount:"+orderAmount;
@@ -181,10 +190,12 @@ public class PayHandler {
 		// 4.计算订单总金额并设置到orderVO对象中
 		Double orderAmount = (double) (orderProjectVO.getSupportPrice() * orderProjectVO.getReturnCount() + orderProjectVO.getFreight());
 		orderVO.setOrderAmount(orderAmount);
+
+		session.setAttribute("supportmoney",orderProjectVO.getSupportPrice() * orderProjectVO.getReturnCount());
 		
 		// ※将OrderVO对象存入Session域
 		session.setAttribute("orderVO", orderVO);
-		
+
 		// 5.调用专门封装好的方法给支付宝接口发送请求
 		return sendRequestToAliPay(orderNum, orderAmount, orderProjectVO.getProjectName(), orderProjectVO.getReturnContent());
 		

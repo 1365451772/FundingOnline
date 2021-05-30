@@ -1,16 +1,14 @@
 package com.peng.crowd.service.impl;
 
 
-import com.peng.crowd.entity.po.AddressPO;
-import com.peng.crowd.entity.po.AddressPOExample;
-import com.peng.crowd.entity.po.OrderPO;
-import com.peng.crowd.entity.po.OrderProjectPO;
+import com.peng.crowd.entity.po.*;
 import com.peng.crowd.entity.vo.AddressVO;
 import com.peng.crowd.entity.vo.OrderProjectVO;
 import com.peng.crowd.entity.vo.OrderVO;
 import com.peng.crowd.mapper.AddressPOMapper;
 import com.peng.crowd.mapper.OrderPOMapper;
 import com.peng.crowd.mapper.OrderProjectPOMapper;
+import com.peng.crowd.mapper.ProjectPOMapper;
 import com.peng.crowd.service.api.OrderService;
 import java.util.ArrayList;
 import java.util.List;
@@ -32,6 +30,9 @@ public class OrderServiceImpl implements OrderService {
 	
 	@Autowired
 	private AddressPOMapper addressPOMapper;
+
+	@Autowired
+	private ProjectPOMapper projectPOMapper;
 
 	@Override
 	public OrderProjectVO getOrderProjectVO(Integer projectId, Integer returnId) {
@@ -94,6 +95,22 @@ public class OrderServiceImpl implements OrderService {
 		orderProjectPO.setOrderId(id);
 		
 		orderProjectPOMapper.insert(orderProjectPO);
+	}
+
+	@Transactional(readOnly = false, propagation = Propagation.REQUIRES_NEW, rollbackFor = Exception.class)
+	@Override
+	public void updateProject(Integer projectId, Long supportMoney) {
+		ProjectPO project = projectPOMapper.selectByPrimaryKey(projectId);
+	    supportMoney = project.getSupportmoney()==null?supportMoney:project.getSupportmoney()+supportMoney;
+		Integer supporter = project.getSupporter() == null ? 1 : project.getSupporter() + 1;
+		Long completion =  project.getCompletion()==null?supportMoney/project.getMoney()*100:supportMoney/project.getMoney()*100;
+		project.setSupportmoney(supportMoney);
+		project.setSupporter(supporter);
+		project.setCompletion(completion.intValue());
+		if (supportMoney>=project.getMoney()){
+			project.setStatus(2);
+		}
+		projectPOMapper.insertSelective(project);
 	}
 
 }

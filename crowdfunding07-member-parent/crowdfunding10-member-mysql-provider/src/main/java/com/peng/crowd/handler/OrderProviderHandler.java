@@ -22,10 +22,11 @@ public class OrderProviderHandler {
 	private OrderService orderService;
 	
 	@RequestMapping("/save/order/remote")
-	ResultEntity<String> saveOrderRemote(@RequestBody OrderVO orderVO) {
+	ResultEntity<String> saveOrderRemote(@RequestBody OrderVO orderVO,@RequestParam("projectId") Integer projectId,@RequestParam("supportmoney") Long supportMoney) {
 		
 		try {
 			orderService.saveOrder(orderVO);
+			orderService.updateProject(projectId,supportMoney);
 			
 			return ResultEntity.successWithoutData();
 			

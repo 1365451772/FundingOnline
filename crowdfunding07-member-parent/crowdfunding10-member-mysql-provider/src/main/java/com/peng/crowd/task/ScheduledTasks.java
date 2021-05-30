@@ -49,7 +49,7 @@ public class ScheduledTasks {
                 Integer lastDay = (int) (totalDays - pastDays);
                 if (lastDay <= 0) {
                     project.setStatus(3);
-                    projectPOMapper.updateByPrimaryKeySelective(project)
+                    projectPOMapper.updateByPrimaryKeySelective(project);
                 }
 
             } catch (ParseException e) {

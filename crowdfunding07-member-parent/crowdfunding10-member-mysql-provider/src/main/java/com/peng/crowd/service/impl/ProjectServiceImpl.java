@@ -140,6 +140,7 @@ public class ProjectServiceImpl implements ProjectService {
         break;
       case 3:
         detailProjectVO.setStatusText("已关闭");
+        detailProjectVO.setLastDay(0);
         break;
 
       default:
@@ -172,6 +173,9 @@ public class ProjectServiceImpl implements ProjectService {
 
       // 使用总的众筹天数减去已经过去的天数得到剩余天数
       Integer lastDay = (int) (totalDays - pastDays);
+      if (lastDay<=0){
+        lastDay=0;
+      }
 
       detailProjectVO.setLastDay(lastDay);
 

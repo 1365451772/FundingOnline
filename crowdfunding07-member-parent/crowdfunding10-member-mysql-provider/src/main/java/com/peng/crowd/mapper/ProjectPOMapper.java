@@ -45,4 +45,7 @@ public interface ProjectPOMapper {
     List<PortalTypeVO> selectPortalTypeVOList();
 
     DetailProjectVO selectDetailProjectVO(Integer projectId);
+
+    List<ProjectPO> selectByExample();
+
 }

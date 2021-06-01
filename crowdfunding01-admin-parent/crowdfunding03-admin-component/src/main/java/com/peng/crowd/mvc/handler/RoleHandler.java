@@ -4,6 +4,7 @@ import com.peng.crowd.service.api.RoleService;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -19,7 +20,7 @@ public class RoleHandler {
   @Autowired
   private RoleService roleService;
 
-
+  @PreAuthorize("hasAuthority('role:delete')")
   @RequestMapping("/role/remove/by/role/id/array.json")
   public ResultEntity<String> removeByRoleIdAarry(@RequestBody List<Integer> roleIdList) {
 
@@ -28,7 +29,7 @@ public class RoleHandler {
     return ResultEntity.successWithoutData();
   }
 
-
+  @PreAuthorize("hasAuthority('role:edit')")
   @RequestMapping("/role/update.json")
   public ResultEntity<String> updateRole(Role role) {
 
@@ -38,6 +39,7 @@ public class RoleHandler {
   }
 
 
+  @PreAuthorize("hasAuthority('role:add')")
   @RequestMapping("/role/save.json")
   public ResultEntity<String> saveRole(Role role) {
 
@@ -47,6 +49,7 @@ public class RoleHandler {
   }
 
   //	@PreAuthorize("hasRole('部长')")
+  @PreAuthorize("hasAuthority('role:get')")
   @RequestMapping("/role/get/page/info.json")
   public ResultEntity<PageInfo<Role>> getPageInfo(
       @RequestParam(value = "pageNum", defaultValue = "1") Integer pageNum,

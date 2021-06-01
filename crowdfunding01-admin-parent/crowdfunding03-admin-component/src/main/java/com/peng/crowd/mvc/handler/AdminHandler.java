@@ -37,7 +37,8 @@ public class AdminHandler {
 		
 		return "redirect:/admin/get/page.html?pageNum="+pageNum+"&keyword="+keyword;
 	}
-	
+
+	@PreAuthorize("hasAuthority('user:edit')")
 	@RequestMapping("/admin/to/edit/page.html")
 	public String toEditPage(
 				@RequestParam("adminId") Integer adminId,
@@ -62,7 +63,8 @@ public class AdminHandler {
 		
 		return "redirect:/admin/get/page.html?pageNum="+Integer.MAX_VALUE;
 	}
-	
+
+	@PreAuthorize("hasAuthority('user:delete')")
 	@RequestMapping("/admin/remove/{adminId}/{pageNum}/{keyword}.html")
 	public String remove(
 				@PathVariable("adminId") Integer adminId,
@@ -85,10 +87,10 @@ public class AdminHandler {
 		// 同时为了保持原本所在的页面和查询关键词再附加pageNum和keyword两个请求参数
 		return "redirect:/admin/get/page.html?pageNum="+pageNum+"&keyword="+keyword;
 	}
-	
+	@PreAuthorize("hasAuthority('user:get')")
 	@RequestMapping("/admin/get/page.html")
 	public String getPageInfo(
-				
+
 				// 使用@RequestParam注解的defaultValue属性，指定默认值，在请求中没有携带对应参数时使用默认值
 				// keyword默认值使用空字符串，和SQL语句配合实现两种情况适配
 				@RequestParam(value="keyword", defaultValue="") String keyword,

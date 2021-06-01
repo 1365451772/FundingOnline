@@ -7,6 +7,7 @@ import com.peng.crowd.service.api.ProjectService;
 import com.peng.crowd.service.api.RoleService;
 import com.peng.crowd.util.ResultEntity;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -20,40 +21,23 @@ public class ProjectCheckHandler {
   @Autowired
   private ProjectService projectService;
 
-
+  @PreAuthorize("hasAuthority('project:uncheck')")
   @RequestMapping("/project/remove/by/role/id/array.json")
   public ResultEntity<String> removeByRoleIdAarry(@RequestBody List<Integer> roleIdList) {
-
-//    roleService.removeRole(roleIdList);
     projectService.unCheck(roleIdList);
     return ResultEntity.successWithoutData();
   }
 
+  @PreAuthorize("hasAuthority('project:check')")
   @RequestMapping("project/check/by/role/id/array.json")
   public ResultEntity<String> checkByProjectIdAarry(@RequestBody List<Integer> projectIdList){
     projectService.check(projectIdList);
     return ResultEntity.successWithoutData();
   }
 
-//
-//  @RequestMapping("/role/update.json")
-//  public ResultEntity<String> updateRole(Role role) {
-//
-//    roleService.updateRole(role);
-//
-//    return ResultEntity.successWithoutData();
-//  }
-//
-//
-//  @RequestMapping("/role/save.json")
-//  public ResultEntity<String> saveRole(Role role) {
-//
-//    roleService.saveRole(role);
-//
-//    return ResultEntity.successWithoutData();
-//  }
 
-  //	@PreAuthorize("hasRole('部长')")
+
+  @PreAuthorize("hasAuthority('project:get')")
   @RequestMapping("/project/get/page/info.json")
   public ResultEntity<PageInfo<ProjectVO>> getPageInfo(
       @RequestParam(value = "pageNum", defaultValue = "1") Integer pageNum,

@@ -7,6 +7,7 @@ import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -29,7 +30,8 @@ public class AssignHandler {
 	
 	@Autowired
 	private AuthService authService;
-	
+
+	@PreAuthorize("hasAuthority('auth:assign')")
 	@ResponseBody
 	@RequestMapping("/assign/do/role/assign/auth.json")
 	public ResultEntity<String> saveRoleAuthRelathinship(
@@ -39,7 +41,8 @@ public class AssignHandler {
 		
 		return ResultEntity.successWithoutData();
 	}
-	
+
+	@PreAuthorize("hasAuthority('auth:get')")
 	@ResponseBody
 	@RequestMapping("/assign/get/assigned/auth/id/by/role/id.json")
 	public ResultEntity<List<Integer>> getAssignedAuthIdByRoleId(
@@ -49,7 +52,8 @@ public class AssignHandler {
 		
 		return ResultEntity.successWithData(authIdList);
 	}
-	
+
+	@PreAuthorize("hasAuthority('auth:get')")
 	@ResponseBody
 	@RequestMapping("/assgin/get/all/auth.json")
 	public ResultEntity<List<Auth>> getAllAuth() {
@@ -58,7 +62,8 @@ public class AssignHandler {
 		
 		return ResultEntity.successWithData(authList);
 	}
-	
+
+	@PreAuthorize("hasAuthority('role:assign')")
 	@RequestMapping("/assign/do/role/assign.html")
 	public String saveAdminRoleRelationship(
 				@RequestParam("adminId") Integer adminId,
@@ -74,7 +79,7 @@ public class AssignHandler {
 		
 		return "redirect:/admin/get/page.html?pageNum="+pageNum+"&keyword="+keyword;
 	}
-
+	@PreAuthorize("hasAuthority('role:get')")
 	@RequestMapping("/assign/to/assign/role/page.html")
 	public String toAssignRolePage(
 			

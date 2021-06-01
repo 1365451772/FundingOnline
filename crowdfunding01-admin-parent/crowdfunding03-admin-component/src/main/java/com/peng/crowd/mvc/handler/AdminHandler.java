@@ -29,7 +29,8 @@ public class AdminHandler {
 	
 	@Autowired
 	private AdminService adminService;
-	
+
+
 	@RequestMapping("/admin/update.html")
 	public String update(Admin admin, @RequestParam("pageNum") Integer pageNum, @RequestParam("keyword") String keyword) {
 		

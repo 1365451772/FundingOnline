@@ -16,11 +16,7 @@ import org.springframework.stereotype.Component;
 
 import com.peng.crowd.entity.Admin;
 import com.peng.crowd.entity.Role;
-import org.springframework.web.context.request.RequestContextHolder;
-import org.springframework.web.context.request.ServletRequestAttributes;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession;
 
 @Component
 public class CrowdUserDetailsService implements UserDetailsService {

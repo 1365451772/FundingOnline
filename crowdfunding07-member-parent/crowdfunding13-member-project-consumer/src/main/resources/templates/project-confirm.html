@@ -215,7 +215,7 @@ $('#myTab a').click(function (e) {
                                         <div class="col-md-6 column">
                                             <div class="panel panel-default">
                                                 <div class="panel-body" style="padding:40px;">
-                                                    <i class="glyphicon glyphicon-user"></i> 支付宝账户名：18801282948<br><br><span style="margin-left:60px;">您正在使用该账号发起众筹项目</span>
+                                                    <i class="glyphicon glyphicon-user"></i> <span id="paynumId">支付宝账户名：18801282948</span><br><br><span style="margin-left:60px;">您正在使用该账号发起众筹项目</span>
                                                 </div>
                                             </div>
                                         </div>
@@ -228,6 +228,16 @@ $('#myTab a').click(function (e) {
                             
                             <script type="text/javascript">
                             	$(function(){
+                            	    $("[name=paynum]").change(function () {
+                                        var paynum = $.trim($(this).val());
+                                        if (paynum ==null || paynum=="") {
+                                            alert("请输入有效数据！");
+                                            $(this).val(this.defaultValue);
+                                            return;
+                                        }
+                                        $("#paynumId").text(paynum);
+                                    })
+
                             		$("#submitBtn").click(function(){
                             			$("#confirmFomr").submit();
                             		});

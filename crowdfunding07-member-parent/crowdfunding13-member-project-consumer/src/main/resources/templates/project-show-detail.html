@@ -223,12 +223,12 @@
                     <p th:if="${return.freight>0}">配送费用：[[${return.freight}]]</p>
                     <p>预计发放时间：项目筹款成功后的[[${return.returnDate}]]天内</p>
 
-                 <!--   <a th:disabled="" th:if="${detailProjectVO.lastDay > 0 and detailProjectVO.statusText=='众筹中'}" th:href="'http://www.crowd.com/order/confirm/return/info/'+${detailProjectVO.projectId}+'/'+${return.returnId}"
+                    <a th:if="${detailProjectVO.status==1}" th:href="'http://www.crowd.com/order/confirm/return/info/'+${detailProjectVO.projectId}+'/'+${return.returnId}"
                        class="btn btn-warning btn-lg">支持</a>
-                    <a th:disabled="disabled" th:if="${detailProjectVO.lastDay <= 0 or detailProjectVO.statusText!='众筹中'}" th:href="'http://www.crowd.com/order/confirm/return/info/'+${detailProjectVO.projectId}+'/'+${return.returnId}"
+                  <!--  <a th:disabled="disabled" th:if="${detailProjectVO.lastDay <= 0 || detailProjectVO.status!=1}" th:href="'http://www.crowd.com/order/confirm/return/info/'+${detailProjectVO.projectId}+'/'+${return.returnId}"
                        class="btn btn-warning btn-lg">支持</a>-->
-                    <a th:href="'http://www.crowd.com/order/confirm/return/info/'+${detailProjectVO.projectId}+'/'+${return.returnId}"
-                       class="btn btn-warning btn-lg">支持</a>
+<!--                    <a th:href="'http://www.crowd.com/order/confirm/return/info/'+${detailProjectVO.projectId}+'/'+${return.returnId}"-->
+<!--                       class="btn btn-warning btn-lg">支持</a>-->
                     <br>
                     <br>
                     <p th:text="${return.content}">
@@ -244,7 +244,7 @@
                   <p>
                     1.众筹并非商品交易，存在一定风险。支持者根据自己的判断选择、支持众筹项目，与发起人共同实现梦想并获得发起人承诺的回报。<br>
                     2.众筹平台仅提供平台网络空间及技术支持等中介服务，众筹仅存在于发起人和支持者之间，使用众筹平台产生的法律后果由发起人与支持者自行承担。<br>
-                    3.本项目必须在2017-06-09之前达到￥10000.00
+                    3.本项目必须在2021-06-30之前达到￥100000.00
                     的目标才算成功，否则已经支持的订单将取消。订单取消或募集失败的，您支持的金额将原支付路径退回。<br>
                     4.请在支持项目后15分钟内付款，否则您的支持请求会被自动关闭。<br>
                     5.众筹成功后由发起人统一进行发货，售后服务由发起人统一提供；如果发生发起人无法发放回报、延迟发放回报、不提供回报后续服务等情况，您需要直接和发起人协商解决。<br>

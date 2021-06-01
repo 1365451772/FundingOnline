@@ -175,6 +175,9 @@ public class ProjectServiceImpl implements ProjectService {
       Integer lastDay = (int) (totalDays - pastDays);
       if (lastDay<=0){
         lastDay=0;
+        ProjectPO projectPO = projectPOMapper.selectByPrimaryKey(projectId);
+        projectPO.setStatus(3);
+        projectPOMapper.insertSelective(projectPO);
       }
 
       detailProjectVO.setLastDay(lastDay);

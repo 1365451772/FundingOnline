@@ -23,6 +23,9 @@ import com.github.pagehelper.PageInfo;
 
 @Controller
 public class AdminHandler {
+
+	//@PreAuthorize("hasAuthority('user:add')")
+	//@PreAuthorize("hasRole('部长')")
 	
 	@Autowired
 	private AdminService adminService;

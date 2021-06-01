@@ -169,6 +169,7 @@
                          aria-valuemax="100" style="width: 60%;"
                          th:style="'width: '+${detailProjectVO.percentage}+'%;'"></div>
                   </div>
+                  <p th:if="${detailProjectVO.lastDay}==-1">项目还未通过审核</p>
                   <p>剩余 [[${detailProjectVO.lastDay}]] 天</p>
                   <div>
                     <p>

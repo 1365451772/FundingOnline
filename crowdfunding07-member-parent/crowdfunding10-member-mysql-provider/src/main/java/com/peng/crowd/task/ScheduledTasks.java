@@ -47,11 +47,14 @@ public class ScheduledTasks {
 
                 // 使用总的众筹天数减去已经过去的天数得到剩余天数
                 Integer lastDay = (int) (totalDays - pastDays);
-                if (lastDay <= 0) {
-                    project.setStatus(3);
-                    projectPOMapper.updateByPrimaryKeySelective(project);
-                }
+                if (lastDay > 0 && project.getMoney() <= project.getSupportmoney()) {
+                    project.setStatus(2);
 
+                }
+                if (lastDay <= 0 && project.getMoney() > project.getSupportmoney()) {
+                    project.setStatus(3);
+                }
+                projectPOMapper.updateByPrimaryKeySelective(project);
             } catch (ParseException e) {
                 e.printStackTrace();
             }

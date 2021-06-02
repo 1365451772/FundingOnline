@@ -37,7 +37,7 @@ public class OrderServiceImpl implements OrderService {
 	@Override
 	public OrderProjectVO getOrderProjectVO(Integer projectId, Integer returnId) {
 		
-		return orderProjectPOMapper.selectOrderProjectVO(returnId);
+		return orderProjectPOMapper.selectOrderProjectVO(returnId,projectId);
 	}
 
 	@Override

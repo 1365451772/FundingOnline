@@ -32,5 +32,5 @@ public interface OrderProjectPOMapper {
 
     int updateByPrimaryKey(OrderProjectPO record);
     
-    OrderProjectVO selectOrderProjectVO(Integer returnId);
+    OrderProjectVO selectOrderProjectVO(@Param("returnId") Integer returnId,@Param("projectId") Integer projectId);
 }

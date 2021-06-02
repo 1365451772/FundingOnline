@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.sound.midi.SoundbankResource;
 
 
 @RestController
@@ -77,7 +78,10 @@ public class OrderProviderHandler {
 		
 		try {
 			OrderProjectVO orderProjectVO = orderService.getOrderProjectVO(projectId, returnId);
-			
+			System.out.println(projectId);
+			System.out.println(orderProjectVO);
+			System.out.println(1);
+			System.out.println(1);
 			return ResultEntity.successWithData(orderProjectVO);
 		} catch (Exception e) {
 			e.printStackTrace();
